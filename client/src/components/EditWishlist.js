@@ -25,7 +25,7 @@ const EditWishlist = ({ wishlist }) => {
         <Fragment>
             <button 
                 type="button" 
-                class="btn btn-warning" 
+                className="btn btn-warning" 
                 data-toggle="modal" 
                 data-target={`#id${wishlist.wish_id}`}
             >
@@ -33,17 +33,17 @@ const EditWishlist = ({ wishlist }) => {
             </button>
 
             <div 
-                class="modal" 
+                className="modal" 
                 id={`id${wishlist.wish_id}`} 
                 onClick={() => setDescription(wishlist.description)}
             >
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Edit Wish</h4>
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h4 className="modal-title">Edit Wish</h4>
                             <button 
                                 type="button" 
-                                class="close" 
+                                className="close" 
                                 data-dismiss="modal"
                                 onClick={() => setDescription(wishlist.description)}
                             >
@@ -51,19 +51,19 @@ const EditWishlist = ({ wishlist }) => {
                             </button>
                         </div>
 
-                        <div class="modal-body">
+                        <div className="modal-body">
                             <input 
                                 type="text" 
-                                className="form-control" 
+                                className   ="form-control" 
                                 value={description} 
                                 onChange={e => setDescription(e.target.value)}
                             />
                         </div>
 
-                        <div class="modal-footer">
+                        <div className="modal-footer">
                             <button 
                                 type="button" 
-                                class="btn btn-warning" 
+                                className="btn btn-warning" 
                                 data-dismiss="modal"
                                 onClick = {e => updateItem(e)}
                             >
@@ -71,7 +71,7 @@ const EditWishlist = ({ wishlist }) => {
                             </button>
                             <button 
                                 type="button" 
-                                class="btn btn-danger" 
+                                className="btn btn-danger" 
                                 data-dismiss="modal"
                                 onClick={() => setDescription(wishlist.description)}
                             >
