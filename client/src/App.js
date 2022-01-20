@@ -2,15 +2,15 @@ import './App.css';
 import React, { Fragment } from "react";
 
 //Components
-import InputTodo from "./components/InputTodo";
-import ListTodo from "./components/ListTodo";
+import InputWishlist from "./components/InputWishlist";
+import ListWishlist from "./components/ListWishlist";
 
 function App() {
   return (
     <Fragment>
       <div className="container">
-        <InputTodo />
-        <ListTodo />
+        <InputWishlist />
+        <ListWishlist />
       </div>
     </Fragment>
   );
