@@ -48,7 +48,7 @@ const ListWishlist = () => {
                         <tr key={wishlist.wish_id}>
                             <td>{wishlist.description}</td>
                             <td>
-                                <EditWishlist wishlists={wishlists}/>
+                                <EditWishlist wishlist={wishlist}/>
                             </td>
                             <td>
                                 <button 

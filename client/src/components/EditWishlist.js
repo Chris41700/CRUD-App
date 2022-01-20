@@ -15,6 +15,7 @@ const EditWishlist = ({ wishlist }) => {
                 body: JSON.stringify(body)
             });
 
+            console.log(response);
             window.location = "/";
         } catch (err) {
             console.error(err.message);
@@ -38,7 +39,6 @@ const EditWishlist = ({ wishlist }) => {
             >
                 <div class="modal-dialog">
                     <div class="modal-content">
-
                         <div class="modal-header">
                             <h4 class="modal-title">Edit Wish</h4>
                             <button 
@@ -78,7 +78,6 @@ const EditWishlist = ({ wishlist }) => {
                                 Close
                             </button>
                         </div>
-
                     </div>
                 </div>
             </div>
