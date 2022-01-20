@@ -9,75 +9,75 @@ app.use(express.json()); //req.body
 
 //ROUTES//
 
-//Create a Todo
+//Create a Wish
 
-app.post("/todos", async (req, res) => {
+app.post("/wishlist", async (req, res) => {
     try {
         const { description } = req.body;
-        const newTodo = await pool.query(
-            "INSERT INTO todo (description) VALUES($1) RETURNING *", 
+        const newWish = await pool.query(
+            "INSERT INTO wishlist (description) VALUES($1) RETURNING *", 
             [description]
         );
 
-        res.json(newTodo.rows[0]);
+        res.json(newWish.rows[0]);
     } catch (err) {
         console.error(err.message);
     }
-})
+});
 
-//Get all Todos
+//Get all Wishes
 
-app.get("/todos", async(req, res) => {
+app.get("/wishlist", async (req, res) => {
     try {
-        const allTodos = await pool.query("SELECT * FROM todo");
-        res.json(allTodos.rows);
+        const allWishes = await pool.query("SELECT * FROM wishlist");
+        res.json(allWishes.rows);
     } catch (err) {
         console.error(err.message);
     }
-})
+});
 
-//Get a Todo
+//Get a Wish
 
-app.get("/todos/:id", async (req, res) => {
+app.get("/wishlist/:id", async (req, res) => {
     try {
         const { id } = req.params;
-        const todo = await pool.query("SELECT * FROM todo WHERE todo_id = $1", [id])
+        const wishlist = await pool.query("SELECT * FROM wishlist WHERE wish_id = $1", [id]);
 
-        res.json(todo.rows[0]);
+        res.json(wishlist.rows[0]);
     } catch (err) {
         console.error(err.message);
     }
-})
+});
 
-//Update a Todo
+//Update a Wish
 
-app.put("/todos/:id", async (req, res) => {
+app.put("/wishlist/:id", async (req, res) => {
     try {
         const { id } = req.params; 
         const { description } = req.body;
-        const updateTodo = await pool.query(
-            "UPDATE todo SET description = $1 WHERE todo_id = $2", 
+        const updateWish = await pool.query(
+            "UPDATE wishlist SET description = $1 WHERE wish_id = $2", 
             [description, id]
         );
  
-        res.json("Todo was updated!");
+        res.json("Wish was updated!");
     } catch (err) {
         console.error(err.message);
     }
-})
+});
 
-//Delete a Todo
+//Delete a Wish
 
-app.delete("/todos/:id", async (req, res) => {
+app.delete("/wishlist/:id", async (req, res) => {
     try {
         const { id } = req.params;
-        const deleteTodo = await pool.query("DELETE FROM todo WHERE todo_id = $1", [id]);
+        const deleteWish = await pool.query("DELETE FROM wishlist WHERE wish_id = $1", [id]);
 
-        res.json("Todo was deleted!");
+        res.json("Wish was deleted!");
     } catch (err) {
         console.error(err.message)
     }
-})
+});
 
 app.listen(5000, () => {
     console.log("Server has started on port 5000");

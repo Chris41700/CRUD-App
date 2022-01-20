@@ -1,6 +1,6 @@
 CREATE DATABASE perntodo;
 
-CREATE TABLE todo(
-    todo_id SERIAL PRIMARY KEY, 
+CREATE TABLE wishlist(
+    wish_id SERIAL PRIMARY KEY, 
     description VARCHAR(255)
 );
