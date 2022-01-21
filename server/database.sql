@@ -5,8 +5,8 @@ CREATE TABLE wishlist(
     description VARCHAR(255)
 );
 
-CREATE TABLE userTable(
+CREATE TABLE usertable(
     register SERIAL PRIMARY KEY,
-    username VARCHAR(255),
-    password VARCHAR(255)
+    username VARCHAR(25) UNIQUE,
+    password VARCHAR(25)
 );

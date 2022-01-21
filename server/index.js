@@ -2,13 +2,40 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const pool = require("./db");
-const bodyParser = require("body-parser");
 
 //middleware
 app.use(cors());
 app.use(express.json()); //req.body
 
 //ROUTES//
+
+//Register a Username and Password
+
+app.post("/register", async (req, res) => {
+    try {
+        const username = req.body.username;
+        const password = req.body.password;
+        const newRegister = await pool.query(
+            "INSERT INTO usertable (username, password) VALUES ($1, $2) RETURNING *",
+            [username, password]
+        );
+
+        res.json(newRegister.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
+//Get all users
+
+app.get("/users", async (req, res) => {
+    try {
+        const allUsers = await pool.query("SELECT * FROM usertable");
+        res.json(allUsers.rows);
+    } catch (err) {
+        console.error(err.message);
+    }
+});
 
 //Create a Wish
 

@@ -10,7 +10,6 @@ function Home() {
                 <Link to="/register" className="btn btn-success">Register</Link>
                 <Link to="/login" className="btn btn-info">Login</Link>
             </div>
-
             <InputWishlist />
             <ListWishlist />
         </Fragment>
